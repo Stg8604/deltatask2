@@ -18,8 +18,6 @@ public interface Service {
     public Call<Data> getScores();
     @GET("/word")
     public Call<Data> getWord();
-    //@POST("/characters")
-    //public Call<Data> getCharacters(@Body RequestBody requestBody);
     @POST("/character")
     Call<Data> getrandomcharacter(@Body CharReq request);
 

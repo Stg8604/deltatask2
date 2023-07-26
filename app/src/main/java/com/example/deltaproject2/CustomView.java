@@ -69,8 +69,8 @@ public class CustomView extends View {
     private float chaserVelocityY;
     private RectF chaserRect;
     private int counteract;
-    private float obstacleY;        // Vertical position of the obstacle
-    private float obstacleVelocityY;    // Vertical velocity of the obstacle
+    private float obstacleY;
+    private float obstacleVelocityY;
     private float obstacleSpeed =7;
     private MediaPlayer media4;
     private static final int OBSTACLE_HEIGHT2=200;
@@ -178,15 +178,10 @@ public class CustomView extends View {
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
-                        // The image has been loaded successfully into the bitmap
-                        // Do something with the bitmap here
                         bit1=bitmap;
                     }
-
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        // Error loading the image URL into the bitmap
-                        // Handle the error condition appropriately
                         Log.e("Glide", "Image loading failed");
                     }
                 });
@@ -199,15 +194,11 @@ public class CustomView extends View {
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
-                        // The image has been loaded successfully into the bitmap
-                        // Do something with the bitmap here
                         bit2=bitmap;
                     }
 
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        // Error loading the image URL into the bitmap
-                        // Handle the error condition appropriately
                         Log.e("Glide", "Image loading failed");
                     }
                 });
@@ -228,19 +219,12 @@ public class CustomView extends View {
             public void onResponse(Call<Data> call, Response<Data> response) {
                 if(response.isSuccessful()) {
                     word=response.body().getWord();
-                    //Toast.makeText(context2, word, Toast.LENGTH_SHORT).show();
-
-                    //Log.e("api","name:"+data1.getName());
-                    //we need to create a for each loop here
-                    //tip.setText(message);
                 } else {
                     Log.e("API", "Error: " + response.code() + " - " + response.message());
-                    //tip.setText("Error: " + response.code());
                 }
             }
             @Override
             public void onFailure(Call<Data> call, Throwable t) {
-                //tip.setText("itsfailure");
                 Log.d("API","Error");
             }
         }   );
@@ -297,7 +281,6 @@ public class CustomView extends View {
 
                     if (chaserY >= getHeight() - bit2.getHeight() && chaserVelocityY >= 0) {
                         if (shouldJump || (obs.left() - bit2.getWidth() <= jumpThreshold && chaserVelocityY == 0)) {
-                            //chaserVelocityY = -jumpForce;
                             shouldJump = false;
                         } else {
                             chaserVelocityY = 0;
@@ -315,32 +298,12 @@ public class CustomView extends View {
                     canvas.drawBitmap(bit2, left, top, null);
                 }
             setLetters(2);
-                //this is two
             Random random=new Random();
             int start=getHeight()-100;
             for (char letter : "king".toCharArray()) {
                 letters.add(new let(letter,start));
                 start=start+50;
             }
-            /*if(!(word==null)){
-                for (char letter : word.toCharArray()) {
-                    letters.add(new let(letter, random.nextInt(canvas.getWidth()), random.nextInt(canvas.getHeight())));
-                }
-            }else{
-                for (char letter : "test".toCharArray()) {
-                    letters.add(new let(letter, random.nextInt(canvas.getWidth()), random.nextInt(canvas.getHeight())));
-                }
-            }
-            if(obstaclejumps>1000){
-                for (let letter : letters) {
-                    if (letter.isfloating) {
-                        bounds=new Rect();
-                        newpaint.getTextBounds(String.valueOf(letter.getLetter()), 0, 1, bounds);
-                        letter.setBounds(bounds);
-                        canvas.drawText(String.valueOf(letter.getLetter()), letter.getX(), letter.getY(), newpaint);
-                    }
-                }
-            }*/
             int baselineY = getHeight() - 100;
             Paint baselinePaint = new Paint();
             baselinePaint.setColor(Color.WHITE);
@@ -360,15 +323,13 @@ public class CustomView extends View {
                     int pas=500;
                     if (obstacleRect.getObstacleBitmap().equals(bit5)) {
                         if (upp) {
-                            obstacleY -= obstacleVelocityY; // move the obstacle up
+                            obstacleY -= obstacleVelocityY;
                             if (obstacleY <= 0) {
-                                // Reached the minimum y-coordinate, change direction to move down
                                 upp = false;
                             }
                         } else {
-                            obstacleY += obstacleVelocityY; // move the obstacle down
+                            obstacleY += obstacleVelocityY;
                             if (obstacleY >= getHeight() - bit5.getHeight()) {
-                                // Reached the maximum y-coordinate, change direction to move up
                                 upp = true;
                             }
                         }
@@ -397,7 +358,6 @@ public class CustomView extends View {
                                     && chaserY-chaseradius<obstacleBottom){
                     shouldJump=true;
                 }
-                // Set the obstacle's position using obstacleY
                 if (circleX  > obstacleLeft && circleX  < obstacleRight
                         && circleY + CIRCLE_RADIUS+75 > obstacleTop && circleY - CIRCLE_RADIUS-75 < obstacleBottom) {
                     if(obs.getObstacleBitmap().equals(bit3)) {
@@ -420,7 +380,6 @@ public class CustomView extends View {
                         showdialog(obstaclejumps);
                     }
                     else{
-                        //need to finish
                     }
                     obstaclePaint.setColor(Color.RED);
                 }else{
@@ -514,7 +473,7 @@ public class CustomView extends View {
     }
     public void setLetters(int count) {
         lettersOnScreen = count;
-        invalidate(); // Redraw the canvas with the updated letter count
+        invalidate();
     }
     private void jump() {
         velocityY = JUMP_VELOCITY;

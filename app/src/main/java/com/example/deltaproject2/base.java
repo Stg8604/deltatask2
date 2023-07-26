@@ -25,11 +25,7 @@ public class base extends ArrayAdapter<Data.Scores> {
         if (itemView == null) {
             itemView = LayoutInflater.from(getContext()).inflate(R.layout.listing, parent, false);
         }
-
-        // Get the current score item
         Data.Scores score = getItem(position);
-
-        // Bind the name and score values to the TextViews
         TextView txtName = itemView.findViewById(R.id.name1);
         TextView txtScore = itemView.findViewById(R.id.name2);
 

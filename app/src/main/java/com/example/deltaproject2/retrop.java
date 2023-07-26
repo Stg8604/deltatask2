@@ -15,6 +15,5 @@ public class retrop {
         }
         return retrofit;
     }
-    // Create an instance of the ApiService interface
     Service service = retrofit.create(Service.class);
 }

@@ -137,17 +137,6 @@ public class MainActivity2 extends AppCompatActivity {
         img1=dialog.findViewById(R.id.img);
         img2=dialog.findViewById(R.id.img2);
         img3=dialog.findViewById(R.id.img3);
-         /*
-        JSONObject reqJson = new JSONObject();
-        try {
-            reqJson.put("type", "player");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), reqJson.toString());
-        Service service = retrofit.create(Service.class);
-        Call<Data> call = service.getCharacters(requestBody);
-        */
         Service service = retrofit.create(Service.class);
         CharReq request1 = new CharReq("chaser");
         Call<Data> call=service.getallcharacters(request1);
@@ -250,17 +239,6 @@ public class MainActivity2 extends AppCompatActivity {
          img1=dialog.findViewById(R.id.img);
          img2=dialog.findViewById(R.id.img2);
          img3=dialog.findViewById(R.id.img3);
-         /*
-        JSONObject reqJson = new JSONObject();
-        try {
-            reqJson.put("type", "player");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), reqJson.toString());
-        Service service = retrofit.create(Service.class);
-        Call<Data> call = service.getCharacters(requestBody);
-        */
         Service service = retrofit.create(Service.class);
         CharReq request1 = new CharReq("player");
         Call<Data> call=service.getallcharacters(request1);

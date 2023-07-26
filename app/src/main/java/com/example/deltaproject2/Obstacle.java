@@ -53,21 +53,16 @@ public class Obstacle {
         rect.offset(offsetX, 0);
     }
     public void moveup(){
-            // Update the vertical position based on the offset
             this.rect.top += verticaloffset;
             this.rect.bottom+=verticaloffset;
-            // Adjust the vertical offset based on the movement direction
             if (movingUp) {
                 verticaloffset -= speed;
             } else {
                 verticaloffset += speed;
             }
-            // Check if the obstacle has reached the upper or lower limit
             if (verticaloffset <= -50) {
-                // Reached upper limit, change direction to move down
                 movingUp = false;
             } else if (verticaloffset >= 50) {
-                // Reached lower limit, change direction to move up
                 movingUp = true;
         }
     }
