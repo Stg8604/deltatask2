@@ -16,8 +16,17 @@ public class Obstacle {
     private int speed;
     private float left;
     private float right;
+    private float top,bottom;
 
-    public Obstacle(Bitmap obstacleBitmap, float left, float top, float right, float bottom,int speed) {
+    public void setTop(float top) {
+        this.top = top;
+    }
+
+    public void setBottom(float bottom) {
+        this.bottom = bottom;
+    }
+
+    public Obstacle(Bitmap obstacleBitmap, float left, float top, float right, float bottom, int speed) {
         this.obstacleBitmap = obstacleBitmap;
         this.rect = new RectF(left, top, right, bottom);
         this.paint = new Paint();
@@ -86,6 +95,47 @@ public class Obstacle {
     public float bottom() {
         return rect.bottom;
     }
+
+    public void setRect(RectF rect) {
+        this.rect = rect;
+    }
+
+    public void setObstacleBitmap(Bitmap obstacleBitmap) {
+        this.obstacleBitmap = obstacleBitmap;
+    }
+
+    public void setPaint(Paint paint) {
+        this.paint = paint;
+    }
+
+    public void setVerticaloffset(float verticaloffset) {
+        this.verticaloffset = verticaloffset;
+    }
+
+    public void setMovingUp(boolean movingUp) {
+        this.movingUp = movingUp;
+    }
+
+    public void setHitboxOffsetX(float hitboxOffsetX) {
+        this.hitboxOffsetX = hitboxOffsetX;
+    }
+
+    public void setHitboxOffsetY(float hitboxOffsetY) {
+        this.hitboxOffsetY = hitboxOffsetY;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setLeft(float left) {
+        this.left = left;
+    }
+
+    public void setRight(float right) {
+        this.right = right;
+    }
+
     private RectF getHitboxRect() {
         return new RectF(rect.left + hitboxOffsetX, rect.top + hitboxOffsetY,
                 rect.right - hitboxOffsetX, rect.bottom - hitboxOffsetY);
