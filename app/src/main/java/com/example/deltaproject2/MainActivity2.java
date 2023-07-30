@@ -321,7 +321,6 @@ public class MainActivity2 extends AppCompatActivity {
                     List<Data.Scores> scores = response.body().getScores();
                     ListView lstscores = dialog.findViewById(R.id.lstview);
                     base scoresAdapter = new base(MainActivity2.this, scores);
-                    Toast.makeText(MainActivity2.this, edtt.getText().toString(), Toast.LENGTH_SHORT).show();
                     if(edtt.getText().toString().equals("")){
                         lstscores.setAdapter(scoresAdapter);
                     }

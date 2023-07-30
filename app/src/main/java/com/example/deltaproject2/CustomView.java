@@ -172,10 +172,7 @@ public class CustomView extends View {
         Picasso picasso = Picasso.get();
         bit1=BitmapFactory.decodeResource(getResources(), R.drawable.helpy);
         bit2=BitmapFactory.decodeResource(getResources(), R.drawable.helpy);
-        Glide.with(context)
-                .asBitmap()
-                .load(MainActivity2.str)
-                .into(new SimpleTarget<Bitmap>() {
+        Glide.with(context).asBitmap().load(MainActivity2.str).into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
                         bit1=bitmap;
@@ -188,10 +185,7 @@ public class CustomView extends View {
         bit3=BitmapFactory.decodeResource(getResources(), R.drawable.cookie2);
         bit4=BitmapFactory.decodeResource(getResources(),R.drawable.scream2);
         bit5=BitmapFactory.decodeResource(getResources(),R.drawable.genie2);
-        Glide.with(context)
-                .asBitmap()
-                .load(MainActivity2.str2)
-                .into(new SimpleTarget<Bitmap>() {
+        Glide.with(context).asBitmap().load(MainActivity2.str2).into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
                         bit2=bitmap;

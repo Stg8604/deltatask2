@@ -9,8 +9,6 @@ public class CharReq {
     public CharReq(String type) {
         this.type = type;
     }
-
-
     public String getType() {
         return type;
     }

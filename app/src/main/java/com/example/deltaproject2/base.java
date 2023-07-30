@@ -28,7 +28,6 @@ public class base extends ArrayAdapter<Data.Scores> {
         Data.Scores score = getItem(position);
         TextView txtName = itemView.findViewById(R.id.name1);
         TextView txtScore = itemView.findViewById(R.id.name2);
-
         if (score != null) {
             txtName.setText(score.getname2());
             txtScore.setText(String.valueOf(score.getScore()));
